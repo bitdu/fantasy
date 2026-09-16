@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cfy4xy6iomvwj"]
+
+[ext_resource type="Script" uid="uid://d3vchkdmqc3h" path="res://world/world.gd" id="1_6xmxd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_20e1q"]
+size = Vector2(40, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_20e1q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f8ppp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qvit5"]
+
+[node name="World" type="Node3D" unique_id=1080944006]
+script = ExtResource("1_6xmxd")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=367433053]
+transform = Transform3D(0.8660254, -0.43301272, 0.24999999, 0, 0.49999997, 0.86602545, -0.5, -0.75, 0.43301266, 0, 0, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1575171431]
+mesh = SubResource("PlaneMesh_20e1q")
+
+[node name="Marker1" type="MeshInstance3D" parent="." unique_id=2015486310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
+mesh = SubResource("BoxMesh_20e1q")
+
+[node name="Marker2" type="MeshInstance3D" parent="." unique_id=1032553421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 4)
+mesh = SubResource("BoxMesh_f8ppp")
+
+[node name="Marker3" type="MeshInstance3D" parent="." unique_id=1063551680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -7)
+mesh = SubResource("BoxMesh_qvit5")
+
+[node name="Players" type="Node3D" parent="." unique_id=1829592739]
+
+[node name="Spawner" type="MultiplayerSpawner" parent="." unique_id=1503957334]
+_spawnable_scenes = PackedStringArray("uid://c5wh3jdkb73wc")
+spawn_path = NodePath("../Players")
