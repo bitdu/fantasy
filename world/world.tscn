@@ -37,3 +37,9 @@ mesh = SubResource("BoxMesh_qvit5")
 [node name="Spawner" type="MultiplayerSpawner" parent="." unique_id=1503957334]
 _spawnable_scenes = PackedStringArray("uid://c5wh3jdkb73wc")
 spawn_path = NodePath("../Players")
+
+[node name="Monsters" type="Node3D" parent="." unique_id=1106789859]
+
+[node name="MonsterSpawner" type="MultiplayerSpawner" parent="." unique_id=908776695]
+_spawnable_scenes = PackedStringArray("uid://pwprc8mb4lcy")
+spawn_path = NodePath("../Monsters")
