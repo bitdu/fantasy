@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bycjokjdv1hmk"]
+
+[ext_resource type="Script" uid="uid://bgyyhrnmfopvl" path="res://client/stats_window.gd" id="1_rjg8y"]
+
+[node name="StatsWindow" type="PanelContainer" unique_id=1243289476]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rjg8y")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=76727851]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Margin" unique_id=138260990]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/VBox" unique_id=1724413292]
+layout_mode = 2
+text = "Character"
+
+[node name="Grid" type="GridContainer" parent="Margin/VBox" unique_id=1020207827]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+columns = 3
+
+[node name="StrengthName" type="Label" parent="Margin/VBox/Grid" unique_id=1614344566]
+layout_mode = 2
+text = "Strength"
+
+[node name="StrengthValue" type="Label" parent="Margin/VBox/Grid" unique_id=873099217]
+layout_mode = 2
+text = "0"
+
+[node name="StrengthPlus" type="Button" parent="Margin/VBox/Grid" unique_id=975519174]
+layout_mode = 2
+text = "+"
+
+[node name="WisdomName" type="Label" parent="Margin/VBox/Grid" unique_id=162276275]
+layout_mode = 2
+text = "Wisdom
+"
+
+[node name="WisdomValue" type="Label" parent="Margin/VBox/Grid" unique_id=2055882312]
+layout_mode = 2
+text = "0"
+
+[node name="WisdomPlus" type="Button" parent="Margin/VBox/Grid" unique_id=1238002023]
+layout_mode = 2
+text = "+"
+
+[node name="SpeedName" type="Label" parent="Margin/VBox/Grid" unique_id=1598400523]
+layout_mode = 2
+text = "Speed"
+
+[node name="SpeedValue" type="Label" parent="Margin/VBox/Grid" unique_id=717232605]
+layout_mode = 2
+text = "0"
+
+[node name="SpeedPlus" type="Button" parent="Margin/VBox/Grid" unique_id=1260524500]
+layout_mode = 2
+text = "+"
+
+[node name="VitalityName" type="Label" parent="Margin/VBox/Grid" unique_id=1105974290]
+layout_mode = 2
+text = "Vitality"
+
+[node name="VitalityValue" type="Label" parent="Margin/VBox/Grid" unique_id=560125137]
+layout_mode = 2
+text = "0"
+
+[node name="VitalityPlus" type="Button" parent="Margin/VBox/Grid" unique_id=1157799549]
+layout_mode = 2
+text = "+"
+
+[node name="FreePoints" type="Label" parent="Margin/VBox" unique_id=2000303335]
+layout_mode = 2
+
+[node name="Sep" type="HSeparator" parent="Margin/VBox" unique_id=1727864601]
+layout_mode = 2
+
+[node name="Derived" type="Label" parent="Margin/VBox" unique_id=871112916]
+layout_mode = 2

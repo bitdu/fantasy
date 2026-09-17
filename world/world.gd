@@ -2,6 +2,7 @@ extends Node3D
 
 const PLAYER_SCENE := preload("res://player/player.tscn")
 const CAMERA_SCENE := preload("res://client/iso_camera.tscn")
+const HUD_SCENE := preload("res://client/hud.tscn")
 const MONSTER_SCENE := preload("res://monster/monster.tscn")
 
 @onready var monsters: Node3D = $Monsters
@@ -14,6 +15,7 @@ func _ready() -> void:
 		_spawn_monsters()
 	else:
 		add_child(CAMERA_SCENE.instantiate())
+		add_child(HUD_SCENE.instantiate())
 
 func _spawn_player(id: int) -> void:
 	var p := PLAYER_SCENE.instantiate()

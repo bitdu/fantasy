@@ -1,11 +1,12 @@
 extends CharacterBody3D
 
-const SPEED := 5.0
 const ARRIVE_DIST := 0.15
 
 var peer_id := 1
 var _target := Vector3.ZERO
 var _has_target := false
+
+@onready var stats: Stats = $Stats
 
 func _ready() -> void:
 	peer_id = name.to_int()
@@ -20,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 		_has_target = false
 		velocity = Vector3.ZERO
 		return
-	velocity = to_target.normalized() * SPEED
+	velocity = to_target.normalized() * stats.move_speed()
 	move_and_slide()
 
 @rpc("any_peer", "call_remote", "reliable")
@@ -31,3 +32,11 @@ func request_move_to(world_pos: Vector3) -> void:
 		return
 	_target = world_pos
 	_has_target = true
+
+@rpc("any_peer", "call_remote", "reliable")
+func request_add_point(stat: StringName) -> void:
+	if not multiplayer.is_server():
+		return
+	if multiplayer.get_remote_sender_id() != peer_id:
+		return
+	stats.add_point(stat)

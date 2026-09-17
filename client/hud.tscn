@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bh1dy7f37burk"]
+
+[ext_resource type="Script" uid="uid://dff1fms10nwd" path="res://client/hud.gd" id="1_qyv1p"]
+[ext_resource type="PackedScene" uid="uid://bycjokjdv1hmk" path="res://client/stats_window.tscn" id="2_m2bu5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20e1q"]
+bg_color = Color(0, 0.9504624, 0.4812371, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8ppp"]
+bg_color = Color(0.113932736, 0.54306185, 0.99999994, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=1004700519]
+script = ExtResource("1_qyv1p")
+
+[node name="Root" type="MarginContainer" parent="." unique_id=1663774928]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Bars" type="VBoxContainer" parent="Root" unique_id=455415049]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="HpBar" type="ProgressBar" parent="Root/Bars" unique_id=1465573199]
+custom_minimum_size = Vector2(240, 24)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_20e1q")
+show_percentage = false
+
+[node name="HpText" type="Label" parent="Root/Bars/HpBar" unique_id=1144274137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MpBar" type="ProgressBar" parent="Root/Bars" unique_id=536713961]
+custom_minimum_size = Vector2(240, 24)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_f8ppp")
+show_percentage = false
+
+[node name="MpText" type="Label" parent="Root/Bars/MpBar" unique_id=2047808575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsWindow" parent="Root" unique_id=1243289476 instance=ExtResource("2_m2bu5")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
