@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://pwprc8mb4lcy"]
 
 [ext_resource type="Script" uid="uid://c06o8jxkp22dx" path="res://monster/monster.gd" id="1_okp8s"]
-[ext_resource type="Resource" uid="uid://da50fvu3calu6" path="res://data/monsters/grunt.tres" id="2_gsx7y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8ppp"]
 albedo_color = Color(1, 0.37254903, 0.36078432, 1)
@@ -21,7 +20,6 @@ properties/1/replication_mode = 2
 
 [node name="Monster" type="CharacterBody3D" unique_id=1944640443]
 script = ExtResource("1_okp8s")
-def = ExtResource("2_gsx7y")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=416340330]
 mesh = SubResource("CylinderMesh_20e1q")

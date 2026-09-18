@@ -9,6 +9,7 @@ const MIN_TARGET_DELTA := 0.25   # skip resend if the target barely moved
 var _players: Node3D
 var _send_timer := 0.0
 var _last_sent := Vector3.INF
+var _holding := false
 
 func _ready() -> void:
 	rotation_degrees = Vector3(-35.264, 45.0, 0.0)
@@ -24,10 +25,16 @@ func _process(delta: float) -> void:
 	if me:
 		global_position = me.global_position
 	_hold_to_move(delta)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_holding = true # only presses the UI didn't take arrive here           # only presses the UI didn't take arrive here
 
 func _hold_to_move(delta: float) -> void:
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		_send_timer = 0.0          # next press sends on its first frame
+		_holding = false
+	if not _holding:
+		_send_timer = 0.0
 		_last_sent = Vector3.INF
 		return
 	_send_timer -= delta

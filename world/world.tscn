@@ -7,6 +7,8 @@ size = Vector2(40, 40)
 
 [sub_resource type="BoxMesh" id="BoxMesh_20e1q"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvit5"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_f8ppp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qvit5"]
@@ -24,13 +26,28 @@ mesh = SubResource("PlaneMesh_20e1q")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
 mesh = SubResource("BoxMesh_20e1q")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Marker1" unique_id=1498107258]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker1/StaticBody3D" unique_id=1880279054]
+shape = SubResource("BoxShape3D_qvit5")
+
 [node name="Marker2" type="MeshInstance3D" parent="." unique_id=1032553421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 4)
 mesh = SubResource("BoxMesh_f8ppp")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Marker2" unique_id=575094536]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker2/StaticBody3D" unique_id=1345922863]
+shape = SubResource("BoxShape3D_qvit5")
+
 [node name="Marker3" type="MeshInstance3D" parent="." unique_id=1063551680]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -7)
 mesh = SubResource("BoxMesh_qvit5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Marker3" unique_id=405345948]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marker3/StaticBody3D" unique_id=851405238]
+shape = SubResource("BoxShape3D_qvit5")
 
 [node name="Players" type="Node3D" parent="." unique_id=1829592739]
 

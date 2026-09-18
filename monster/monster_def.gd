@@ -1,9 +1,10 @@
 class_name MonsterDef
-extends Resource
+extends RefCounted
+# One row of res://data/monsters.json.
 
-@export var id: StringName = &"grunt"
-@export var display_name := "Grunt"
-@export var max_hp := 30
-@export var speed := 2.5
-@export var wander_radius := 3.0
-@export var wander_wait := 2.0   # seconds standing still between walks
+var id: StringName
+var display_name := ""
+var max_hp := 0
+var move_speed := 0.0      # meters per second
+var wander_radius := 0.0
+var wander_wait := 0.0     # seconds standing still between walks

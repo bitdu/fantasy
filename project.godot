@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Net="*uid://dnuhooviwjtun"
+Data="*uid://rkswfqyi37qt"
 
 [display]
 

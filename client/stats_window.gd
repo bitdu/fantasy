@@ -27,11 +27,11 @@ func _process(_delta: float) -> void:
 		_value_labels[stat].text = str(s.get(stat))
 		_plus_buttons[stat].disabled = s.free_points <= 0
 	_free_points.text = "Free points: %d" % s.free_points
-	var phys := s.phys_damage()
-	var magic := s.magic_damage()
-	_derived.text = "HP %d   MP %d\nPhysical %d-%d   Magic %d-%d\nMove %.2f m/s   Attacks %.2f/s" % [
+	var phys := s.shown_phys_damage()
+	var magic := s.shown_magic_damage()
+	_derived.text = "HP %d   MP %d\nPhysical %d-%d   Magic %d-%d\nMove %d%%   Attack speed %d%%" % [
 		s.max_hp(), s.max_mp(), phys.x, phys.y, magic.x, magic.y,
-		s.move_speed(), s.attacks_per_second()]
+		s.shown_move_speed(), s.shown_attack_speed()]
 
 func _on_plus(stat: StringName) -> void:
 	player.request_add_point.rpc_id(1, stat)

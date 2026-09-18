@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cuv4n1qbec8r4" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b1e368ewqds0e" path="res://player/stats.gd" id="2_g1dw6"]
-[ext_resource type="Resource" uid="uid://c7bckgolj2vll" path="res://data/classes/might.tres" id="3_yw30f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_20e1q"]
 
@@ -48,4 +47,3 @@ replication_config = SubResource("SceneReplicationConfig_kqu6x")
 
 [node name="Stats" type="Node" parent="." unique_id=1367928442]
 script = ExtResource("2_g1dw6")
-class_def = ExtResource("3_yw30f")

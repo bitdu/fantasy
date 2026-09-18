@@ -32,6 +32,13 @@ func request_move_to(world_pos: Vector3) -> void:
 		return
 	_target = world_pos
 	_has_target = true
+	
+	const MAP_HALF_SIZE := 20.0   # floor is 40 x 40; moves to map data with the first real map
+
+	if not world_pos.is_finite():
+		return
+	world_pos.x = clampf(world_pos.x, -MAP_HALF_SIZE, MAP_HALF_SIZE)
+	world_pos.z = clampf(world_pos.z, -MAP_HALF_SIZE, MAP_HALF_SIZE)
 
 @rpc("any_peer", "call_remote", "reliable")
 func request_add_point(stat: StringName) -> void:

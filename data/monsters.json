@@ -1,0 +1,6 @@
+{
+	"version": 1,
+	"rows": [
+		{ "id": "grunt", "display_name": "Grunt", "max_hp": 180, "move_speed": 2.5, "wander_radius": 3.0, "wander_wait": 2.0 }
+	]
+}
