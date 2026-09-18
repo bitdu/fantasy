@@ -44,7 +44,7 @@ func move_speed() -> float:
 func attacks_per_second() -> float:
 	return class_def.base_attacks_per_second + speed * class_def.attack_speed_per_speed
 
-# --- damage functions to prevent decimals going to user
+# --- Shown values. Integers for the GUI; the only place display rounding happens.
 
 func shown_phys_damage() -> Vector2i:
 	var d := phys_damage()
@@ -59,16 +59,18 @@ func shown_move_speed() -> int:
 
 func shown_attack_speed() -> int:
 	return roundi(100.0 * attacks_per_second() / class_def.base_attacks_per_second)
-	
-# --- Server only.
+
+# --- Server only. Each one starts with Net.guard: on a client it refuses and logs.
 
 # The one place a damage range becomes an integer. The caller passes the combat RNG.
 func roll_damage(damage_range: Vector2, rng: RandomNumberGenerator) -> int:
-	assert(multiplayer.is_server(), "roll_damage on a client")
+	if not Net.guard("Stats.roll_damage"):
+		return 0
 	return maxi(1, roundi(rng.randf_range(damage_range.x, damage_range.y)))
 
 func reset_to_class() -> void:
-	assert(multiplayer.is_server(), "reset_to_class on a client")
+	if not Net.guard("Stats.reset_to_class"):
+		return
 	strength = class_def.base_strength
 	wisdom = class_def.base_wisdom
 	speed = class_def.base_speed
@@ -78,7 +80,8 @@ func reset_to_class() -> void:
 	mp = max_mp()
 
 func add_point(stat: StringName) -> bool:
-	assert(multiplayer.is_server(), "add_point on a client")
+	if not Net.guard("Stats.add_point"):
+		return false
 	if free_points <= 0:
 		return false
 	match stat:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuv4n1qbec8r4" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://b1e368ewqds0e" path="res://player/stats.gd" id="2_g1dw6"]
+[ext_resource type="Script" uid="uid://dtsdckda1e1vj" path="res://entity/entity_sim.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_20e1q"]
 
@@ -10,7 +11,7 @@
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kqu6x"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
-properties/0/replication_mode = 2
+properties/0/replication_mode = 1
 properties/1/path = NodePath("Stats:strength")
 properties/1/spawn = true
 properties/1/replication_mode = 2
@@ -47,3 +48,6 @@ replication_config = SubResource("SceneReplicationConfig_kqu6x")
 
 [node name="Stats" type="Node" parent="." unique_id=1367928442]
 script = ExtResource("2_g1dw6")
+
+[node name="Sim" type="Node" parent="." unique_id=893615702]
+script = ExtResource("3_g1dw6")
